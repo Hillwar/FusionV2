@@ -2,7 +2,9 @@ import Combine
 import SwiftUI
 
 public class MoleculeSupplier: ObservableObject {
-    @Published public var fusionView: AnyView?
+    @Published public var fusionView: AnyView? = nil
+    
+    public init() {}
     
     public func fetchMolecule(from url: String) {
         guard let url = URL(string: url) else {

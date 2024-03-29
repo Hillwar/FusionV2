@@ -1,0 +1,4 @@
+framework module FusionProducer {
+  header "FusionProducer-Swift.h"
+  requires objc
+}
