@@ -16,7 +16,7 @@ class ColumnBuilder : LayoutBuilder<ColumnNode>() {
      *
      * @return The constructed [ColumnNode] instance with configured properties.
      */
-    override fun build() = ColumnNode(children, viewAttr)
+    override fun build() = ColumnNode(children, viewAttr, state)
 }
 
 /**

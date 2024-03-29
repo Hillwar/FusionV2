@@ -22,5 +22,6 @@ class TextNode(
     val text: String? = null,
     private val textAttr: TextAttr? = null,
     override val viewAttr: ViewAttr? = null,
+    override var state: Map<String, String>? = null,
 ) : FusionView()
 

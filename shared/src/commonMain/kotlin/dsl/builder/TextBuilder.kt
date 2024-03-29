@@ -84,7 +84,7 @@ class TextBuilder : ViewBuilder<TextNode>() {
     /**
      * Builds and returns a [TextNode] with the specified configuration.
      */
-    override fun build() = TextNode(text, textAttr, viewAttr)
+    override fun build() = TextNode(text, textAttr, viewAttr, state)
 
     /**
      * Builder class for configuring font attributes.

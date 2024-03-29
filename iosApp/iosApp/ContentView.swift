@@ -1,19 +1,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var viewModel = ViewModel()
+    @ObservedObject var supplier = MoleculeSupplier()
 
     var body: some View {
         VStack {
-            if let fusionView = viewModel.fusionView {
+            if let fusionView = supplier.fusionView {
                 fusionView
             } else {
                 Text("Loading...")
-                    .onAppear(perform: viewModel.fetchMolecule)
+                    .onAppear {
+                        supplier.fetchMolecule(from: "http://0.0.0.0:8080/molecule")
+                    }
             }
         }
         .onTapGesture {
-            viewModel.fetchMolecule()
+            supplier.fetchMolecule(from: "http://0.0.0.0:8080/molecule")
         }
     }
 }

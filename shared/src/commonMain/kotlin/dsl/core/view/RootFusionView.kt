@@ -18,7 +18,4 @@ import kotlinx.serialization.Serializable
  */
 @FusionViewDsl
 @Serializable
-sealed class FusionView {
-    abstract val viewAttr: ViewAttr?
-    abstract var state: Map<String, String>?
-}
+data class RootFusionView(val rootView: FusionView, val state: Map<String, String>? = null, val script: String? = null)

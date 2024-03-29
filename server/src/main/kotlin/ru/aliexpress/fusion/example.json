@@ -1,277 +1,38 @@
 {
-  "type": "Box",
-  "children": [
-    {
-      "type": "Column",
-      "children": [
-        {
-          "type": "Row",
-          "children": [
-            {
-              "type": "Image",
-              "source": "https://cdn-icons-png.flaticon.com/512/732/732250.png",
-              "viewAttr": {
-                "size": {
-                  "maxWidth": {
-                    "value": 16.0
-                  },
-                  "maxHeight": {
-                    "value": 16.0
-                  }
-                }
-              }
-            },
-            {
-              "type": "Box",
-              "children": [],
-              "viewAttr": {
-                "size": {
-                  "maxWidth": {
-                    "value": 4.0
-                  }
-                }
-              }
-            },
-            {
-              "type": "Text",
-              "text": "Санкт-Петербург",
-              "textAttr": {
-                "font": {
-                  "size": 13.0,
-                  "lineHeight": 16,
-                  "color": "#18181B"
-                },
-                "maxLines": 1
-              }
-            },
-            {
-              "type": "Spacer"
-            }
-          ]
+  "rootView": {
+    "type": "Column",
+    "children": [
+      {
+        "type": "Text",
+        "text": "$.text",
+        "viewAttr": {
+          "background": {
+            "color": "$.color"
+          },
+          "onTap": "onTextTap"
         },
-        {
-          "type": "Box",
-          "children": [],
-          "viewAttr": {
-            "size": {
-              "maxHeight": {
-                "value": 14.0
-              }
-            }
-          }
-        },
-        {
-          "type": "Row",
-          "children": [
-            {
-              "type": "Text",
-              "text": "4 апреля",
-              "textAttr": {
-                "font": {
-                  "size": 13.0,
-                  "lineHeight": 16,
-                  "color": "#18181B"
-                },
-                "maxLines": 1
-              }
-            },
-            {
-              "type": "Box",
-              "children": [],
-              "viewAttr": {
-                "size": {
-                  "maxWidth": {
-                    "value": 4.0
-                  }
-                }
-              }
-            },
-            {
-              "type": "Text",
-              "text": "почтой",
-              "textAttr": {
-                "font": {
-                  "size": 13.0,
-                  "lineHeight": 16,
-                  "color": "#A0A0AB"
-                },
-                "maxLines": 1
-              }
-            },
-            {
-              "type": "Spacer"
-            },
-            {
-              "type": "Text",
-              "text": "Бесплатно",
-              "textAttr": {
-                "font": {
-                  "size": 13.0,
-                  "lineHeight": 16,
-                  "color": "#32CD32"
-                },
-                "maxLines": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "Box",
-          "children": [],
-          "viewAttr": {
-            "size": {
-              "maxHeight": {
-                "value": 14.0
-              }
-            }
-          }
-        },
-        {
-          "type": "Row",
-          "children": [
-            {
-              "type": "Text",
-              "text": "31 марта",
-              "textAttr": {
-                "font": {
-                  "size": 13.0,
-                  "lineHeight": 16,
-                  "color": "#18181B"
-                },
-                "maxLines": 1
-              }
-            },
-            {
-              "type": "Box",
-              "children": [],
-              "viewAttr": {
-                "size": {
-                  "maxWidth": {
-                    "value": 4.0
-                  }
-                }
-              }
-            },
-            {
-              "type": "Text",
-              "text": "пункт выдачи",
-              "textAttr": {
-                "font": {
-                  "size": 13.0,
-                  "lineHeight": 16,
-                  "color": "#A0A0AB"
-                },
-                "maxLines": 1
-              }
-            },
-            {
-              "type": "Spacer"
-            },
-            {
-              "type": "Text",
-              "text": "Бесплатно",
-              "textAttr": {
-                "font": {
-                  "size": 13.0,
-                  "lineHeight": 16,
-                  "color": "#32CD32"
-                },
-                "maxLines": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "Box",
-          "children": [],
-          "viewAttr": {
-            "size": {
-              "maxHeight": {
-                "value": 12.0
-              }
-            }
-          }
-        },
-        {
-          "type": "Box",
-          "children": [],
-          "viewAttr": {
-            "size": {
-              "maxWidth": {
-                "value": -2.0
-              },
-              "maxHeight": {
-                "value": 1.0
-              }
-            },
-            "background": {
-              "color": "#E6EAF0"
-            }
-          }
-        },
-        {
-          "type": "Box",
-          "children": [],
-          "viewAttr": {
-            "size": {
-              "maxHeight": {
-                "value": 12.0
-              }
-            }
-          }
-        },
-        {
-          "type": "Row",
-          "children": [
-            {
-              "type": "Text",
-              "text": "Защита покупателей 30 дн.",
-              "textAttr": {
-                "font": {
-                  "size": 11.0,
-                  "lineHeight": 12,
-                  "color": "#A0A0AB"
-                },
-                "maxLines": 3
-              }
-            },
-            {
-              "type": "Spacer"
-            }
-          ]
+        "state": {
+          "$.text": "Old value"
         }
-      ],
-      "viewAttr": {
-        "size": {
-          "maxWidth": {
-            "value": -2.0
-          }
+      },
+      {
+        "type": "Text",
+        "text": "text2"
+      }
+    ],
+    "viewAttr": {
+      "size": {
+        "maxWidth": {
+          "value": 100.0
         },
-        "background": {
-          "color": "#FCFCFD",
-          "cornerRadius": 8.0
-        },
-        "border": {
-          "color": "#E6EAF0",
-          "width": {
-            "value": 1.0
-          }
-        },
-        "paddings": {
-          "left": 12.0,
-          "right": 12.0,
-          "top": 12.0,
-          "bottom": 12.0
+        "maxHeight": {
+          "value": 100.0
         }
       }
     }
-  ],
-  "viewAttr": {
-    "paddings": {
-      "left": 12.0,
-      "right": 12.0,
-      "top": 0.0,
-      "bottom": 0.0
-    }
-  }
+  },
+  "state": {
+    "$.color": "#0000FF"
+  },
+  "script": "function onTextTap(state) {\n    let newState = state;\n    newState['$.text'] = 'New value';\n    newState['$.color'] = '#FF0000';\n    return newState;\n}"
 }

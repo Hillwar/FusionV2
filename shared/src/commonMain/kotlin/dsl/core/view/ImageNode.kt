@@ -26,6 +26,7 @@ class ImageNode(
     val tint: String? = null,
     val resizeMode: ResizeMode? = null,
     override val viewAttr: ViewAttr? = null,
+    override var state: Map<String, String>? = null,
 ) : FusionView()
 
 

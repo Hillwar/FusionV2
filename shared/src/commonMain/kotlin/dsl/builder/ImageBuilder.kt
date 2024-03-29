@@ -51,5 +51,5 @@ class ImageBuilder : ViewBuilder<ImageNode>() {
      *
      * @return The constructed [ImageNode] instance.
      */
-    override fun build() = ImageNode(source, tint, resizeMode, viewAttr)
+    override fun build() = ImageNode(source, tint, resizeMode, viewAttr, state)
 }

@@ -19,4 +19,5 @@ import kotlinx.serialization.Serializable
 class BoxNode(
     override val children: List<FusionView>? = null,
     override val viewAttr: ViewAttr? = null,
+    override var state: Map<String, String>? = null,
 ) : Layout()

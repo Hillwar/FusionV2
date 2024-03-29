@@ -17,5 +17,5 @@ class SpacerBuilder : ViewBuilder<SpacerNode>() {
         minLength = value.invoke()
     }
 
-    override fun build() = SpacerNode(minLength, viewAttr)
+    override fun build() = SpacerNode(minLength, viewAttr, state)
 }

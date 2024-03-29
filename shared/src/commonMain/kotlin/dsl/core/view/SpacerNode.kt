@@ -17,5 +17,6 @@ import kotlinx.serialization.Serializable
 @SerialName("Spacer")
 class SpacerNode(
     private val minLength: Float? = null,
-    override val viewAttr: ViewAttr? = null
+    override val viewAttr: ViewAttr? = null,
+    override var state: Map<String, String>? = null,
 ) : FusionView()

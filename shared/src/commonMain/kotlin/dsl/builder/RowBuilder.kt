@@ -14,7 +14,7 @@ class RowBuilder : LayoutBuilder<RowNode>() {
      *
      * @return The constructed [RowNode] instance.
      */
-    override fun build(): RowNode = RowNode(children, viewAttr)
+    override fun build(): RowNode = RowNode(children, viewAttr, state)
 }
 
 /**

@@ -12,7 +12,7 @@ class BoxBuilder : LayoutBuilder<BoxNode>() {
     /**
      * Builds and returns a [BoxNode] instance with the configured children and view attributes.
      */
-    override fun build() = BoxNode(children, viewAttr)
+    override fun build() = BoxNode(children, viewAttr, state)
 }
 
 /**
