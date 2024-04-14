@@ -9,8 +9,9 @@ import rating.rating
 import readScript
 import shipping.shipping
 import title.title
+import price.price
 
-private val state = title.view.state + shipping.view.state + image.view.state + rating.view.state
+private val state = title.view.state + shipping.view.state + image.view.state + rating.view.state + price.view.state
 
 private val rootView = column {
 
@@ -38,6 +39,16 @@ private val rootView = column {
 
     child {
         image.view.rootView
+    }
+
+    box {
+        size {
+            maxHeight { 8 }
+        }
+    }
+
+    child {
+        price.view.rootView
     }
 
     box {

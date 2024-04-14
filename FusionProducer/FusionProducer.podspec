@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source           = { :path => '.' }
   s.source_files = 'Sources/**/*.{h,swift}'
 
-  s.ios.deployment_target = '15.0'
+  s.ios.deployment_target = '13.0'
   s.swift_version = '5.4'
   s.static_framework = true
   s.preserve_paths = '*'
