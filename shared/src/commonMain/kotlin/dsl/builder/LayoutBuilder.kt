@@ -1,4 +1,5 @@
 @file:Suppress("FunctionName")
+
 package dsl.builder
 
 import dsl.core.FusionViewDsl
@@ -10,7 +11,7 @@ import dsl.core.view.*
  * and introduces methods to add child views such as boxes, columns, rows, text, and images.
  */
 @FusionViewDsl
-abstract class LayoutBuilder<T: FusionView> : ViewBuilder<T>() {
+abstract class LayoutBuilder<T : FusionView> : ViewBuilder<T>() {
     val children: MutableList<FusionView> by lazy { mutableListOf() }
 
     /**
@@ -60,6 +61,8 @@ abstract class LayoutBuilder<T: FusionView> : ViewBuilder<T>() {
      * @return The constructed [SpacerNode] added to this layout's children.
      */
     fun spacer(init: SpacerBuilder.() -> Unit): SpacerNode = addView(SpacerBuilder(), init)
+
+    fun child(value: () -> FusionView) = children.add(value.invoke())
 
     /**
      * Generic method to initialize a view builder, apply the provided configuration, build the view,

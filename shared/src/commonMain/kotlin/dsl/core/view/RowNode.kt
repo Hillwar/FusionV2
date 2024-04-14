@@ -1,4 +1,3 @@
-
 package dsl.core.view
 
 import dsl.core.FusionViewDsl
@@ -20,6 +19,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 @SerialName("Row")
 class RowNode(
+    val spacing: Int = 0,
     override val children: List<FusionView>? = null,
     override val viewAttr: ViewAttr? = null,
     override var state: Map<String, String>? = null,

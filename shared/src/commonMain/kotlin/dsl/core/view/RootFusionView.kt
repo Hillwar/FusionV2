@@ -18,4 +18,4 @@ import kotlinx.serialization.Serializable
  */
 @FusionViewDsl
 @Serializable
-data class RootFusionView(val rootView: FusionView, val state: Map<String, String>? = null, val script: String? = null)
+data class RootFusionView(val rootView: FusionView, val state: Map<String, String> = mutableMapOf(), val script: String = "")

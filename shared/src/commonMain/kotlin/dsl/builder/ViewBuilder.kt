@@ -18,7 +18,7 @@ import dsl.core.view.viewAttr.*
  * in the app development process, ensuring flexibility and scalability in UI design.
  */
 @FusionViewDsl
-abstract class ViewBuilder<T: FusionView> {
+abstract class ViewBuilder<T : FusionView> {
     private val viewAttrDelegate = LazyInitTracker { ViewAttr() }
     private val _viewAttr: ViewAttr by viewAttrDelegate
     val viewAttr: ViewAttr? get() = if (viewAttrDelegate.isInitialized()) _viewAttr else null
@@ -70,6 +70,13 @@ abstract class ViewBuilder<T: FusionView> {
         _viewAttr.alpha = value.invoke().toDouble()
     }
 
+    /**
+     * Configures the padding around the view.
+     * @param builder A lambda to configure the BordersBuilder for setting padding on each side.
+     */
+    fun padding(builder: BordersBuilder.() -> Unit) {
+        _viewAttr.paddings = BordersBuilder().apply(builder).build()
+    }
 
     /**
      * Sets the visibility of the view.
@@ -92,7 +99,7 @@ abstract class ViewBuilder<T: FusionView> {
      * @param map A lambda returning a Map of state properties and values.
      */
     fun state(vararg map: Pair<String, Any>) {
-        state = map.toMap().mapValues { it.value.toString()}
+        state = map.toMap().mapValues { it.value.toString() }
     }
 
 

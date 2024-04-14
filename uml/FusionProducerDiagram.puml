@@ -1,0 +1,44 @@
+@startuml
+class FusionView {
++ viewAttr: ViewAttr
++ context: JSContext
++ @Binding state: [String: String]
++ @State localState: [String: String]
+}
+
+class Layout {
+}
+
+class BoxNode {
+}
+
+class ColumnNode {
+}
+
+class RowNode {
+}
+
+class ImageNode {
+}
+
+class TextNode {
+}
+
+class SpacerNode {
+}
+
+class RootFusionView {
++ @State state: [String: String]
++ script: String
++ context: JSContext
+}
+
+
+Layout <|-- ColumnNode
+FusionView <|-- Layout
+Layout <|-- BoxNode
+FusionView <|-- ImageNode
+Layout <|-- RowNode
+FusionView <|-- TextNode
+FusionView <|-- SpacerNode
+@enduml

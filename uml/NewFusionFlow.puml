@@ -1,0 +1,20 @@
+@startuml
+
+actor Разработчик
+participant "Kotlin DSL" as DSL
+participant Бекенд
+participant Клиент
+participant SwiftUI as SwiftUI
+participant "Стейт Менеджер" as State
+participant "JavaScriptCore" as JS
+
+Разработчик -> DSL : Пишет код на Kotlin DSL
+DSL -> Бекенд : Строит JSON по DSL \n и тправляет его
+Бекенд -> Клиент : Загружает JSON
+Клиент -> SwiftUI : Десериализация \n в дерево SwiftUI \n компонентов
+SwiftUI -> State : Подписка компонентов \n на стейт
+SwiftUI -> JS : При взаимодействии \n пользователем \n выполняет JS скрипт
+JS -> State : Меняет стейт
+State -> SwiftUI : Перерисовывает UI
+
+@enduml

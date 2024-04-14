@@ -1,0 +1,38 @@
+@startuml
+class ColumnNode {
+}
+
+class Layout {
++ List<FusionView> children
+}
+
+class FusionView {
++ ViewAttr viewAttr
++ Map<String, String> state
+}
+
+class BoxNode {
+}
+class ImageNode {
+}
+class RowNode {
+}
+class TextNode {
+}
+class SpacerNode {
+}
+class RootFusionView {
++ FusionView rootView
++ Map<String, String> state
++ String script
+}
+
+
+Layout <|-- ColumnNode
+FusionView <|-- Layout
+Layout <|-- BoxNode
+FusionView <|-- ImageNode
+Layout <|-- RowNode
+FusionView <|-- TextNode
+FusionView <|-- SpacerNode
+@enduml

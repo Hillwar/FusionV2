@@ -11,7 +11,7 @@ struct TextNode: FusionView {
     @State var localState: [String: String] = [:]
     
     var body: some View {
-       Text(text.get(state, localState))
+        Text(text.value(with: state, localState: localState))
             .applyTextAttr(textAttr)
             .applyViewAttributes(viewAttr, state, localState)
             .onTapGesture {
@@ -21,12 +21,17 @@ struct TextNode: FusionView {
             }
     }
     
-    mutating func create (from decoder: Decoder, _ context: JSContext) throws -> TextNode {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.text = try container.decode(String.self, forKey: .text)
-        self.textAttr = (try? container.decode(TextAttr.self, forKey: .textAttr)) ?? TextAttr()
-        try initFusionView(from: decoder, context)
-        self._localState = State(initialValue: (try? container.decode([String: String].self, forKey: .state)) ?? [:])
+    mutating func create(from decoder: Decoder, context: JSContext) -> TextNode {
+        do {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            self.text = try container.decode(String.self, forKey: .text)
+            self.textAttr = try container.decodeIfPresent(TextAttr.self, forKey: .textAttr) ?? TextAttr()
+            try initFusionView(from: decoder, context: context)
+            let localState = try container.decodeIfPresent([String: String].self, forKey: .state) ?? [:]
+            self._localState = State(initialValue: localState)
+        } catch let decodingError {
+            assertionFailure("Error decoding Text: \(decodingError)")
+        }
         return self
     }
     
@@ -67,8 +72,9 @@ struct TextAttr: Decodable, CustomStringConvertible, ViewModifier {
         let color = font?.color ?? "#000000"
         let align = align?.textAlignment ?? .center
         let maxLines = maxLines
+        let weight = font?.weight?.swiftUIValue ?? .regular
         return content
-            .font(.system(size: fontSize))
+            .font(.system(size: fontSize, weight: weight))
             .foregroundColor(Color(hex: color))
             .multilineTextAlignment(align)
             .lineLimit(maxLines)
@@ -78,7 +84,22 @@ struct TextAttr: Decodable, CustomStringConvertible, ViewModifier {
 
 struct Font : Decodable {
     var size: CGFloat?
+    var weight: Weight?
     var lineHeight: Int?
     var letterSpacing: Int?
     var color: String?
+}
+
+struct Weight: Decodable {
+    let value: String?
+    
+    var swiftUIValue: SwiftUI.Font.Weight {
+        switch value {
+        case "regular": return .regular
+        case "medium": return .medium
+        case "semiBold": return .semibold
+        case "bold": return .bold
+        default: return .regular
+        }
+    }
 }

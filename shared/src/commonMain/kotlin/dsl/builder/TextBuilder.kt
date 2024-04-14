@@ -1,22 +1,21 @@
 package dsl.builder
 
+import dsl.core.FusionViewDsl
 import dsl.core.view.TextNode
-import dsl.core.view.textAttr.AlignMode
-import dsl.core.view.textAttr.Font
-import dsl.core.view.textAttr.OverflowMode
-import dsl.core.view.textAttr.TextAttr
+import dsl.core.view.textAttr.*
 
 
 /**
  * Builder class for creating [TextNode] instances, allowing for detailed configuration
  * of text properties, including content, alignment, overflow behavior, and styling.
  */
+@FusionViewDsl
 class TextBuilder : ViewBuilder<TextNode>() {
 
     private val textAttrDelegate = LazyInitTracker { TextAttr() }
     private val _textAttr: TextAttr by textAttrDelegate
     private val textAttr: TextAttr? get() = if (textAttrDelegate.isInitialized()) _textAttr else null
-    private var text: String? = null
+    lateinit var text: String
 
     /**
      * Sets the text content.
@@ -91,12 +90,17 @@ class TextBuilder : ViewBuilder<TextNode>() {
      */
     inner class FontBuilder {
         private var size: Float? = null
+        private var weight: Weight? = null
         private var lineHeight: Int? = null
         private var letterSpacing: Int? = null
         private var color: String? = null
 
         fun size(value: () -> Number) {
             size = value.invoke().toFloat()
+        }
+
+        fun weight(value: () -> Weight) {
+            weight = value()
         }
 
         fun lineHeight(value: () -> Int) {
@@ -111,6 +115,9 @@ class TextBuilder : ViewBuilder<TextNode>() {
             color = value.invoke()
         }
 
-        fun build() = Font(size, lineHeight, letterSpacing, this.color)
+        fun build() = Font(size, weight, lineHeight, letterSpacing, this.color)
     }
 }
+
+@FusionViewDsl
+fun text(init: TextBuilder.() -> Unit): TextNode = TextBuilder().apply(init).build()

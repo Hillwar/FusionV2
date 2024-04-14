@@ -53,3 +53,6 @@ class ImageBuilder : ViewBuilder<ImageNode>() {
      */
     override fun build() = ImageNode(source, tint, resizeMode, viewAttr, state)
 }
+
+@FusionViewDsl
+fun image(init: ImageBuilder.() -> Unit): ImageNode = ImageBuilder().apply(init).build()

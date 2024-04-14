@@ -1,6 +1,5 @@
 package ru.aliexpress.fusion
 
-import URI
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
@@ -17,8 +16,30 @@ fun main() {
 
 fun Application.module() {
     routing {
-        get("/molecule") {
-            val fileName = URI
+        get("/molecule/shipping") {
+            val fileName = System.getProperty("user.dir") + "/server/src/main/kotlin/ru/aliexpress/fusion/molecules/shipping.json"
+
+            val file = File(fileName)
+
+            BufferedReader(FileReader(file)).use { reader ->
+                val line = reader.readText()
+                call.respondText(line)
+            }
+        }
+
+        get("/molecule/title") {
+            val fileName = System.getProperty("user.dir") + "/server/src/main/kotlin/ru/aliexpress/fusion/molecules/title.json"
+
+            val file = File(fileName)
+
+            BufferedReader(FileReader(file)).use { reader ->
+                val line = reader.readText()
+                call.respondText(line)
+            }
+        }
+
+        get("/molecule/root") {
+            val fileName = System.getProperty("user.dir") + "/server/src/main/kotlin/ru/aliexpress/fusion/molecules/root.json"
 
             val file = File(fileName)
 

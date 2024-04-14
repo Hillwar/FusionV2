@@ -8,13 +8,18 @@ import dsl.core.view.RowNode
  */
 class RowBuilder : LayoutBuilder<RowNode>() {
 
+    private var spacing: Int = 0
+
     /**
      * Constructs and returns a [RowNode] instance based on the configured properties.
      * This includes the child views added to the row and any view attributes set.
      *
      * @return The constructed [RowNode] instance.
      */
-    override fun build(): RowNode = RowNode(children, viewAttr, state)
+
+    fun spacing(value: () -> Int): RowBuilder = apply { spacing = value() }
+
+    override fun build(): RowNode = RowNode(spacing, children, viewAttr, state)
 }
 
 /**

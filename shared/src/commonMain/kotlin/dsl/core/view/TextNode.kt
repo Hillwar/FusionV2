@@ -19,7 +19,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 @SerialName("Text")
 class TextNode(
-    val text: String? = null,
+    val text: String,
     private val textAttr: TextAttr? = null,
     override val viewAttr: ViewAttr? = null,
     override var state: Map<String, String>? = null,

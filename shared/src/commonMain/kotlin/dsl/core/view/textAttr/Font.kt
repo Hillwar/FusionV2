@@ -8,6 +8,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Font(
     val size: Float? = null,
+    val weight: Weight? = null,
     val lineHeight: Int? = null,
     val letterSpacing: Int? = null,
     val color: String? = null

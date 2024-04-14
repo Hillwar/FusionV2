@@ -10,16 +10,15 @@ protocol FusionView: CustomStringConvertible, View {
 }
 
 extension FusionView {
-    mutating func initFusionView(from decoder: Decoder, _ context: JSContext) throws {
+    mutating func initFusionView(from decoder: Decoder, context: JSContext) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.viewAttr = (try? container.decode(ViewAttr.self, forKey: .viewAttr)) ?? ViewAttr()
+        self.viewAttr = try container.decodeIfPresent(ViewAttr.self, forKey: .viewAttr) ?? ViewAttr()
         self.context = context
     }
 }
 
-private enum CodingKeys: String, CodingKey {
+enum CodingKeys: String, CodingKey {
     case viewAttr
-    case state
 }
 
 extension View {
@@ -40,7 +39,7 @@ extension View {
             )
             .opacity(opacity)
             .padding(viewAttr.paddings?.insets ?? EdgeInsets())
-            .background(Color(hex: viewAttr.background?.color?.get(state, localState)))
+            .background(Color(hex: viewAttr.background?.color?.value(with: state, localState: localState)))
             .overlay(
                 RoundedRectangle(cornerRadius: cornerRadius)
                     .stroke(borderColor, lineWidth: borderWidth)
@@ -56,7 +55,8 @@ extension View {
 
 extension CustomStringConvertible {
     var description: String {
-        var description = "\(type(of: self)):\n"
+        let typeOf = "\(type(of: self)):\n"
+        var description = typeOf
         let mirror = Mirror(reflecting: self)
         
         for child in mirror.children.compactMap({ $0 }) {
@@ -67,7 +67,9 @@ extension CustomStringConvertible {
                 description += "        \(label): \(child.value)\n"
             }
         }
-        
+        if description == typeOf {
+            return ""
+        }
         return description.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
@@ -84,11 +86,8 @@ struct ViewAttr: Decodable, CustomStringConvertible {
 }
 
 extension String {
-    func get(_ state: [String: String], _ localState: [String: String]) -> String {
-        if self.starts(with: "$."), let value = state[self] {
-            return value
-        }
-        if self.starts(with: "$."), let value = localState[self] {
+    func value(with state: [String: String], localState: [String: String]) -> String {
+        if starts(with: "$."), let value = state[self] ?? localState[self] {
             return value
         }
         return self
