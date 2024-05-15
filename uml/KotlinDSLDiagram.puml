@@ -1,38 +1,121 @@
 @startuml
-class ColumnNode {
+
+skinparam rectangle {
+    BackgroundColor Wheat
+    BorderColor Black
+    Shadowing true
 }
 
-class Layout {
-+ List<FusionView> children
+' Define class styles
+skinparam class {
+    BackgroundColor<<node>> PaleGreen
+    BackgroundColor<<builder>> LightBlue
 }
 
-class FusionView {
-+ ViewAttr viewAttr
-+ Map<String, String> state
+skinparam arrow {
+    Color Black
 }
 
-class BoxNode {
-}
-class ImageNode {
-}
-class RowNode {
-}
-class TextNode {
-}
-class SpacerNode {
-}
-class RootFusionView {
-+ FusionView rootView
-+ Map<String, String> state
-+ String script
+' Define components
+class FusionView <<node>> {
+    +viewAttr: ViewAttr
+    +state: Map<String, String>
 }
 
+class Layout <<node>> {
+    +children: List<FusionView>
+}
 
-Layout <|-- ColumnNode
-FusionView <|-- Layout
-Layout <|-- BoxNode
-FusionView <|-- ImageNode
-Layout <|-- RowNode
-FusionView <|-- TextNode
-FusionView <|-- SpacerNode
+class TextNode <<node>> {
+    +textAttr: TextAttr
+}
+
+class BoxNode <<node>> {
+}
+
+class ImageNode <<node>> {
+}
+
+class ColumnNode <<node>> {
+}
+
+class RowNode <<node>> {
+}
+
+class SpacerNode <<node>> {
+}
+
+class RootFusionView <<node>> {
+    +rootView: FusionView
+    +state: Map<String, String>
+    +script: String
+}
+
+class Molecule {
+    +name: String
+    +view: RootFusionView
+}
+
+' Define builders
+class ViewBuilder <<builder>> {
+    +build(): FusionView
+}
+
+class LayoutBuilder <<builder>> {
+    +build(): Layout
+}
+
+class BoxBuilder <<builder>> {
+}
+
+class ColumnBuilder <<builder>> {
+}
+
+class RowBuilder <<builder>> {
+}
+
+class TextBuilder <<builder>> {
+}
+
+class ImageBuilder <<builder>> {
+}
+
+class SpacerBuilder <<builder>> {
+}
+
+class MoleculeLoader {
+}
+
+' Relationships
+FusionView <-- Layout
+FusionView <-- TextNode
+FusionView <-- ImageNode
+FusionView <-- SpacerNode
+Layout <-- BoxNode
+Layout <-- ColumnNode
+Layout <-- RowNode
+
+RootFusionView --> FusionView
+Molecule --> RootFusionView
+
+ViewAttr --> FusionView
+TextAttr --> TextNode
+
+ViewBuilder <-- LayoutBuilder
+LayoutBuilder <-- BoxBuilder
+LayoutBuilder <-- ColumnBuilder
+LayoutBuilder <-- RowBuilder
+ViewBuilder <-- TextBuilder
+ViewBuilder <-- ImageBuilder
+ViewBuilder <-- SpacerBuilder
+
+MoleculeLoader --> Molecule : "load()"
+ViewBuilder --> FusionView : "build()"
+
+legend right
+    <b>Legend</b>
+    <back:PaleGreen>Node Classes</back> : Represents UI components or layouts
+    <back:LightBlue>Builder Classes</back> : Builders for creating UI components
+endlegend
+
 @enduml

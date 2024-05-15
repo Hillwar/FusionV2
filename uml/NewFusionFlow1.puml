@@ -1,0 +1,15 @@
+@startuml
+
+actor Разработчик
+participant "Kotlin DSL" as DSL
+participant Бекенд
+participant Клиент
+participant SwiftUI as SwiftUI
+
+Разработчик -> DSL : Пишет код на Kotlin DSL
+DSL -> Бекенд : Строит JSON по DSL \n и оправляет его
+Бекенд -> Клиент : Загружает JSON
+Клиент -> SwiftUI : Десериализация \n в дерево SwiftUI \n компонентов
+
+
+@enduml

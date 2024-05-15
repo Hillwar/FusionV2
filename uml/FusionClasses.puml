@@ -1,0 +1,82 @@
+@startuml
+
+skinparam defaultFontName Arial
+skinparam defaultFontSize 28
+skinparam classFontSize 32
+
+skinparam rectangle {
+    BackgroundColor Snow
+    BorderColor Black
+    Shadowing true
+}
+
+skinparam class {
+    BackgroundColor<<factory>> YellowGreen
+    BackgroundColor<<node>> PaleGreen
+    BackgroundColor<<parser>> Orange
+    BackgroundColor<<engine>> LightBlue
+    BackgroundColor<<registry>> LightYellow
+}
+
+rectangle "FusionBinary Parsing" as Parsing <<parser>> {
+    class FusionBinaryParser
+    class FusionBinaryReader
+}
+
+rectangle "Node Factories" as Factories <<factory>> {
+    class TextNodeFactory
+    class BoxNodeFactory
+    class LayoutNodeFactory
+    class ViewNodeFactory
+    class AtomNodeFactory
+}
+
+rectangle "Node Structure" as Nodes <<node>> {
+    class TextNode
+    class BoxNode
+    class LayoutNode
+    class ViewNode
+    class AtomNode
+}
+
+rectangle "Fusion Engine" as Engine <<engine>> {
+    class FusionEngine
+    class MoleculeDownloader
+    class FusionController
+    class Rendering
+}
+
+rectangle "Native" as Native <<native>> {
+    class FusionAtomRegistry
+    class Layout
+    class Text
+    class Box
+}
+
+class FusionContext
+
+' Connections
+FusionBinaryParser --> FusionBinaryReader : "bytes"
+FusionBinaryParser --> TextNodeFactory : "produces"
+FusionBinaryParser --> BoxNodeFactory : "produces"
+BoxNodeFactory -right-> LayoutNodeFactory : "implements"
+LayoutNodeFactory --> ViewNodeFactory : "implements"
+TextNodeFactory --> ViewNodeFactory : "implements"
+ViewNodeFactory --> AtomNodeFactory : "implements"
+ViewNodeFactory --> ViewNode : "builds"
+BoxNode --> LayoutNode : "implements"
+LayoutNode --> ViewNode : "implements"
+TextNode --> ViewNode : "implements"
+ViewNode --> FusionContext : "import"
+ViewNode --> AtomNode : "implements"
+
+FusionEngine --> FusionBinaryParser : "import"
+FusionEngine --> MoleculeDownloader : "import"
+MoleculeDownloader --> FusionController : "produces *.fusion"
+FusionController --> Rendering : "render()"
+Rendering --> FusionAtomRegistry : "import"
+FusionAtomRegistry --> Layout : "maps"
+FusionAtomRegistry --> Text : "maps"
+Box --> Layout : "implements"
+
+@enduml

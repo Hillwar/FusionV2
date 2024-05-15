@@ -1,44 +1,89 @@
 @startuml
-class FusionView {
-+ viewAttr: ViewAttr
-+ context: JSContext
-+ @Binding state: [String: String]
-+ @State localState: [String: String]
+
+skinparam class {
+    BackgroundColor Wheat
+    BorderColor Black
+    Shadowing true
 }
 
-class Layout {
+skinparam class {
+    BackgroundColor<<node>> PaleGreen
+    BackgroundColor<<helper>> LightBlue
 }
 
-class BoxNode {
+class FusionView <<node>> {
+    + viewAttr: ViewAttr
+    + context: JSContext
+    + @Binding state: [String: String]
+    + @State localState: [String: String]
+    + applyViewAttributes(): View
 }
 
-class ColumnNode {
+class Layout <<node>> {
+    + initLayout()
 }
 
-class RowNode {
+class BoxNode <<node>> {
+    + create(): BoxNode
 }
 
-class ImageNode {
+class ColumnNode <<node>> {
+    + create(): ColumnNode
 }
 
-class TextNode {
+class RowNode <<node>> {
+    + create(): RowNode
 }
 
-class SpacerNode {
+class ImageNode <<node>> {
+    + create(): ImageNode
 }
 
-class RootFusionView {
-+ @State state: [String: String]
-+ script: String
-+ context: JSContext
+class TextNode <<node>> {
+    + create(): TextNode
 }
 
+class SpacerNode <<node>> {
+    + create(): SpacerNode
+}
 
-Layout <|-- ColumnNode
-FusionView <|-- Layout
-Layout <|-- BoxNode
-FusionView <|-- ImageNode
-Layout <|-- RowNode
-FusionView <|-- TextNode
-FusionView <|-- SpacerNode
+class MoleculeSupplier {
+    + fusionView: AnyView
+}
+
+class FusionViewWrapper <<helper>> {
+    + view: any FusionView
+}
+
+class RootFusionView <<node>> {
+    + @State state: [String: String]
+    + script: String
+    + context: JSContext
+}
+
+class DecodingHelper <<helper>> {
+    + decodeChildren(): [any FusionView]
+}
+
+ObservableObject <--- MoleculeSupplier
+MoleculeSupplier --> RootFusionView : "fetchMolecule()"
+RootFusionView --> FusionViewWrapper : "contains"
+FusionViewWrapper --> FusionView : "contains"
+Layout <--- ColumnNode
+Layout <--- BoxNode
+Layout <--- RowNode
+FusionView <--- Layout
+FusionView <--- ImageNode
+FusionView <--- TextNode
+FusionView <--- SpacerNode
+Layout --> DecodingHelper : "uses"
+DecodingHelper --> Layout : "children"
+
+legend right
+    <b>Legend</b>
+    <back:Wheat>Node Classes</back> : Third Party Connector
+    <back:PaleGreen>Node Classes</back> : UI components and structures
+    <back:LightBlue>Helper Classes</back> : Utility classes for specific functions
+endlegend
+
 @enduml
