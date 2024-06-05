@@ -1,8 +1,8 @@
 @startuml
 
 skinparam defaultFontName Arial
-skinparam defaultFontSize 28
-skinparam classFontSize 32
+skinparam defaultFontSize 42
+skinparam classFontSize 52
 
 skinparam rectangle {
     BackgroundColor Snow
@@ -56,27 +56,27 @@ rectangle "Native" as Native <<native>> {
 class FusionContext
 
 ' Connections
-FusionBinaryParser --> FusionBinaryReader : "bytes"
-FusionBinaryParser --> TextNodeFactory : "produces"
+FusionBinaryParser -left-> FusionBinaryReader : "bytes"
+FusionBinaryParser -down-> TextNodeFactory : "produces"
 FusionBinaryParser --> BoxNodeFactory : "produces"
-BoxNodeFactory -right-> LayoutNodeFactory : "implements"
+BoxNodeFactory -down-> LayoutNodeFactory : "implements"
 LayoutNodeFactory --> ViewNodeFactory : "implements"
 TextNodeFactory --> ViewNodeFactory : "implements"
 ViewNodeFactory --> AtomNodeFactory : "implements"
-ViewNodeFactory --> ViewNode : "builds"
+ViewNodeFactory -left-> ViewNode : "builds"
 BoxNode --> LayoutNode : "implements"
 LayoutNode --> ViewNode : "implements"
-TextNode --> ViewNode : "implements"
+TextNode -left-> ViewNode : "implements"
 ViewNode --> FusionContext : "import"
-ViewNode --> AtomNode : "implements"
+ViewNode -up-> AtomNode : "implements"
 
-FusionEngine --> FusionBinaryParser : "import"
+FusionEngine -right-> FusionBinaryParser : "import"
 FusionEngine --> MoleculeDownloader : "import"
-MoleculeDownloader --> FusionController : "produces *.fusion"
-FusionController --> Rendering : "render()"
-Rendering --> FusionAtomRegistry : "import"
+MoleculeDownloader --> FusionController : "produces \n*.fusion"
+FusionController -down-> Rendering : "render()         "
+Rendering -down-> FusionAtomRegistry : "import"
 FusionAtomRegistry --> Layout : "maps"
-FusionAtomRegistry --> Text : "maps"
-Box --> Layout : "implements"
+FusionAtomRegistry -right-> Text : "maps"
+Box -up-> Layout : "implements"
 
 @enduml

@@ -10,8 +10,11 @@ import readScript
 import shipping.shipping
 import title.title
 import price.price
+import sku.sku
 
-private val state = title.view.state + shipping.view.state + image.view.state + rating.view.state + price.view.state
+private val state = title.view.state + shipping.view.state + image.view.state + rating.view.state + price.view.state + sku.view.state
+
+private val script = title.view.script + shipping.view.script + image.view.script + rating.view.script + price.view.script + sku.view.script
 
 private val rootView = column {
 
@@ -23,7 +26,7 @@ private val rootView = column {
 
     box {
         size {
-            maxHeight { 8 }
+            minHeight { 8 }
         }
     }
 
@@ -33,7 +36,7 @@ private val rootView = column {
 
     box {
         size {
-            maxHeight { 8 }
+            minHeight { 8 }
         }
     }
 
@@ -43,7 +46,17 @@ private val rootView = column {
 
     box {
         size {
-            maxHeight { 8 }
+            minHeight{ 8 }
+        }
+    }
+
+    child {
+        sku.view.rootView
+    }
+
+    box {
+        size {
+            minHeight { 8 }
         }
     }
 
@@ -53,7 +66,7 @@ private val rootView = column {
 
     box {
         size {
-            maxHeight { 8 }
+            minHeight { 8 }
         }
     }
 
@@ -62,8 +75,7 @@ private val rootView = column {
     }
 }
 
-
-private val view = RootFusionView(rootView, state, readScript("title") + readScript("shipping"))
+private val view = RootFusionView(rootView, state, script)
 
 val root = Molecule("root", view)
 

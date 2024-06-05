@@ -24,7 +24,7 @@ enum CodingKeys: String, CodingKey {
 extension View {
     func applyViewAttributes(_ viewAttr: ViewAttr, _ state: [String: String], _ localState: [String: String]) -> some View {
         let opacity = viewAttr.isVisible ?? true ? viewAttr.alpha ?? 1.0 : 0.0
-        let borderColor = Color(hex: viewAttr.border?.color)
+        let borderColor = Color(hex: viewAttr.border?.color?.value(with: state, localState: localState))
         let borderWidth = viewAttr.border?.width?.swiftUIValue ?? 1
         let cornerRadius = viewAttr.background?.cornerRadius ?? 0
         
@@ -83,6 +83,7 @@ struct ViewAttr: Decodable, CustomStringConvertible {
     var paddings: Borders?
     var isVisible: Bool?
     var onTap: String?
+    var onAppear: String?
 }
 
 extension String {

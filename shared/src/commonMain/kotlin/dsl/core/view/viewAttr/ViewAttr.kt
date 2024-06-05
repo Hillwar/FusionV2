@@ -17,4 +17,5 @@ data class ViewAttr(
     var paddings: Borders? = null,
     var isVisible: Boolean? = null,
     var onTap: String? = null,
+    var onAppear: String?  = null,
 )

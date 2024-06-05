@@ -11,8 +11,8 @@ import readScript
 private val state = mutableMapOf(
     "$.url" to "https://ae04.alicdn.com/kf/S57df2f4985ad49f5b8d734577a2178b0h.jpg_640x640.jpg",
     "$.star_url" to "https://st.aliexpress.ru/resources/pdpv3/rating_icon.png",
-
-    )
+    "$.price" to "12.99"
+)
 
 private val rootView = box {
 
@@ -43,16 +43,16 @@ private val rootView = box {
         }
 
         text {
-            text { "189 ₽" }
+            text { "$.price" }
             font {
                 size { 21 }
-               weight { Weight.semiBold }
+                weight { Weight.semiBold }
             }
         }
 
         box {
             size {
-                maxHeight { 8 }
+                minHeight { 8 }
             }
         }
 
@@ -68,7 +68,7 @@ private val rootView = box {
 
         box {
             size {
-                maxHeight { 8 }
+                minHeight { 8 }
             }
         }
 

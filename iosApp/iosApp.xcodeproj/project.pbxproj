@@ -11,6 +11,23 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		A22400F92C0F9A4B001C6976 /* DecodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400E52C0F9A4B001C6976 /* DecodingHelper.swift */; };
+		A22400FA2C0F9A4B001C6976 /* FusionViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400E62C0F9A4B001C6976 /* FusionViewWrapper.swift */; };
+		A22400FB2C0F9A4B001C6976 /* RootFusionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400E72C0F9A4B001C6976 /* RootFusionView.swift */; };
+		A22400FC2C0F9A4B001C6976 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400E92C0F9A4B001C6976 /* ActivityIndicator.swift */; };
+		A22400FD2C0F9A4B001C6976 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400EA2C0F9A4B001C6976 /* Box.swift */; };
+		A22400FE2C0F9A4B001C6976 /* Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400EB2C0F9A4B001C6976 /* Column.swift */; };
+		A22400FF2C0F9A4B001C6976 /* FusionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400EC2C0F9A4B001C6976 /* FusionView.swift */; };
+		A22401002C0F9A4B001C6976 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400ED2C0F9A4B001C6976 /* Image.swift */; };
+		A22401012C0F9A4B001C6976 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400EE2C0F9A4B001C6976 /* Layout.swift */; };
+		A22401022C0F9A4B001C6976 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400EF2C0F9A4B001C6976 /* Row.swift */; };
+		A22401032C0F9A4B001C6976 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400F02C0F9A4B001C6976 /* Spacer.swift */; };
+		A22401042C0F9A4B001C6976 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400F12C0F9A4B001C6976 /* Text.swift */; };
+		A22401052C0F9A4B001C6976 /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400F22C0F9A4B001C6976 /* Value.swift */; };
+		A22401062C0F9A4B001C6976 /* JSFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400F42C0F9A4B001C6976 /* JSFunc.swift */; };
+		A22401072C0F9A4B001C6976 /* SwiftUIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400F52C0F9A4B001C6976 /* SwiftUIUtils.swift */; };
+		A22401082C0F9A4B001C6976 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400F62C0F9A4B001C6976 /* Utils.swift */; };
+		A22401092C0F9A4B001C6976 /* MoleculeSupplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22400F82C0F9A4B001C6976 /* MoleculeSupplier.swift */; };
 		A2B5DC012BB967BE0083B983 /* FusionProducer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B5DBFF2BB967B80083B983 /* FusionProducer.framework */; };
 		A2B5DC022BB967BE0083B983 /* FusionProducer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A2B5DBFF2BB967B80083B983 /* FusionProducer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -36,6 +53,23 @@
 		7555FF7B242A565900829871 /* FusionV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FusionV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A22400E52C0F9A4B001C6976 /* DecodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecodingHelper.swift; sourceTree = "<group>"; };
+		A22400E62C0F9A4B001C6976 /* FusionViewWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FusionViewWrapper.swift; sourceTree = "<group>"; };
+		A22400E72C0F9A4B001C6976 /* RootFusionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootFusionView.swift; sourceTree = "<group>"; };
+		A22400E92C0F9A4B001C6976 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		A22400EA2C0F9A4B001C6976 /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		A22400EB2C0F9A4B001C6976 /* Column.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Column.swift; sourceTree = "<group>"; };
+		A22400EC2C0F9A4B001C6976 /* FusionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FusionView.swift; sourceTree = "<group>"; };
+		A22400ED2C0F9A4B001C6976 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		A22400EE2C0F9A4B001C6976 /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		A22400EF2C0F9A4B001C6976 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
+		A22400F02C0F9A4B001C6976 /* Spacer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
+		A22400F12C0F9A4B001C6976 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		A22400F22C0F9A4B001C6976 /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		A22400F42C0F9A4B001C6976 /* JSFunc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSFunc.swift; sourceTree = "<group>"; };
+		A22400F52C0F9A4B001C6976 /* SwiftUIUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIUtils.swift; sourceTree = "<group>"; };
+		A22400F62C0F9A4B001C6976 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A22400F82C0F9A4B001C6976 /* MoleculeSupplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoleculeSupplier.swift; path = ../../FusionProducer/Sources/MoleculeSupplier.swift; sourceTree = "<group>"; };
 		A2B5B9372BB716A60083B983 /* FusionProducer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FusionProducer.framework; sourceTree = "<group>"; };
 		A2B5B9382BB716A80083B983 /* FusionProducer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FusionProducer.framework; path = "../../../../Library/Developer/Xcode/DerivedData/FusionProducer-axruhbsajorkptgsgmzkqkgeraxw/Build/Products/Release-iphonesimulator/FusionProducer.framework"; sourceTree = "<group>"; };
 		A2B5DBFF2BB967B80083B983 /* FusionProducer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FusionProducer.framework; path = "../../../../Library/Developer/Xcode/DerivedData/FusionProducer-axruhbsajorkptgsgmzkqkgeraxw/Build/Products/Release-iphonesimulator/FusionProducer.framework"; sourceTree = "<group>"; };
@@ -82,6 +116,8 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				A22400F72C0F9A4B001C6976 /* FusionView */,
+				A22400F82C0F9A4B001C6976 /* MoleculeSupplier.swift */,
 				A2B5DBFF2BB967B80083B983 /* FusionProducer.framework */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
@@ -90,6 +126,46 @@
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
 			path = iosApp;
+			sourceTree = "<group>";
+		};
+		A22400E82C0F9A4B001C6976 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				A22400E52C0F9A4B001C6976 /* DecodingHelper.swift */,
+				A22400E62C0F9A4B001C6976 /* FusionViewWrapper.swift */,
+				A22400E72C0F9A4B001C6976 /* RootFusionView.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		A22400F32C0F9A4B001C6976 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A22400E92C0F9A4B001C6976 /* ActivityIndicator.swift */,
+				A22400EA2C0F9A4B001C6976 /* Box.swift */,
+				A22400EB2C0F9A4B001C6976 /* Column.swift */,
+				A22400EC2C0F9A4B001C6976 /* FusionView.swift */,
+				A22400ED2C0F9A4B001C6976 /* Image.swift */,
+				A22400EE2C0F9A4B001C6976 /* Layout.swift */,
+				A22400EF2C0F9A4B001C6976 /* Row.swift */,
+				A22400F02C0F9A4B001C6976 /* Spacer.swift */,
+				A22400F12C0F9A4B001C6976 /* Text.swift */,
+				A22400F22C0F9A4B001C6976 /* Value.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A22400F72C0F9A4B001C6976 /* FusionView */ = {
+			isa = PBXGroup;
+			children = (
+				A22400E82C0F9A4B001C6976 /* Parser */,
+				A22400F32C0F9A4B001C6976 /* View */,
+				A22400F42C0F9A4B001C6976 /* JSFunc.swift */,
+				A22400F52C0F9A4B001C6976 /* SwiftUIUtils.swift */,
+				A22400F62C0F9A4B001C6976 /* Utils.swift */,
+			);
+			name = FusionView;
+			path = ../../FusionProducer/Sources/FusionView;
 			sourceTree = "<group>";
 		};
 		AB1DB47929225F7C00F7AF9C /* Configuration */ = {
@@ -199,8 +275,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A22401062C0F9A4B001C6976 /* JSFunc.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				A22400FD2C0F9A4B001C6976 /* Box.swift in Sources */,
+				A22401052C0F9A4B001C6976 /* Value.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				A22401032C0F9A4B001C6976 /* Spacer.swift in Sources */,
+				A22400FB2C0F9A4B001C6976 /* RootFusionView.swift in Sources */,
+				A22401022C0F9A4B001C6976 /* Row.swift in Sources */,
+				A22400FA2C0F9A4B001C6976 /* FusionViewWrapper.swift in Sources */,
+				A22401072C0F9A4B001C6976 /* SwiftUIUtils.swift in Sources */,
+				A22400FF2C0F9A4B001C6976 /* FusionView.swift in Sources */,
+				A22401082C0F9A4B001C6976 /* Utils.swift in Sources */,
+				A22400FE2C0F9A4B001C6976 /* Column.swift in Sources */,
+				A22401012C0F9A4B001C6976 /* Layout.swift in Sources */,
+				A22401042C0F9A4B001C6976 /* Text.swift in Sources */,
+				A22400FC2C0F9A4B001C6976 /* ActivityIndicator.swift in Sources */,
+				A22400F92C0F9A4B001C6976 /* DecodingHelper.swift in Sources */,
+				A22401092C0F9A4B001C6976 /* MoleculeSupplier.swift in Sources */,
+				A22401002C0F9A4B001C6976 /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

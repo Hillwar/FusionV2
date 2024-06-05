@@ -8,23 +8,33 @@ struct ImageNode: FusionView {
     var context: JSContext
     @Binding var state: [String: String]
     @State var localState: [String: String] = [:]
-    @State private var imageData: Data?
-    @State private var isAnimating = true
     
     var body: some View {
-        Group {
-            if let imageData = imageData, let uiImage = UIImage(data: imageData) {
-                Image(uiImage: uiImage)
+        AsyncImage(url: URL(string: source.value(with: state, localState: localState))) { phase in
+            switch phase {
+            case .success(let image):
+                image
                     .resizable()
                     .scaledToFit()
-            } else {
-                ActivityIndicator(isAnimating: $isAnimating, style: .medium)
-                    .onAppear {
-                        loadImage()
-                    }
+            case .empty, .failure:
+                Rectangle()
+                    .foregroundColor(.gray)
+                    .overlay(Text("Unable to load image").foregroundColor(.white))
+            @unknown default:
+                EmptyView()
             }
         }
         .applyViewAttributes(viewAttr, state, localState)
+        .onTapGesture {
+            if let onTap = viewAttr.onTap {
+                (state, localState) = context.invoke(name: onTap, state, localState)
+            }
+        }
+        .onAppear {
+            if let onAppear = viewAttr.onAppear {
+                (state, localState) = context.invoke(name: onAppear, state, localState)
+            }
+        }
     }
     
     mutating func create(from decoder: Decoder, context: JSContext) -> ImageNode {
@@ -48,20 +58,4 @@ struct ImageNode: FusionView {
         case source
         case state
     }
-    
-    func loadImage() {
-        guard let url = URL(string: source.value(with: state, localState: localState)) else {
-            return
-        }
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            DispatchQueue.main.async {
-                if let data = data {
-                    self.imageData = data
-                }
-                self.isAnimating = false
-            }
-        }.resume()
-    }
 }
-
-

@@ -94,6 +94,10 @@ abstract class ViewBuilder<T : FusionView> {
         _viewAttr.onTap = value.invoke()
     }
 
+    fun onAppear(value: () -> String) {
+        _viewAttr.onAppear= value.invoke()
+    }
+
     /**
      * Sets the state of the view. Can be used to define custom properties or states.
      * @param map A lambda returning a Map of state properties and values.

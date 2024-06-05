@@ -16,7 +16,12 @@ struct TextNode: FusionView {
             .applyViewAttributes(viewAttr, state, localState)
             .onTapGesture {
                 if let onTap = viewAttr.onTap {
-                    state = context.invoke(name: onTap, state, localState)
+                    (state, localState) = context.invoke(name: onTap, state, localState)
+                }
+            }
+            .onAppear {
+                if let onAppear = viewAttr.onAppear {
+                    (state, localState) = context.invoke(name: onAppear, state, localState)
                 }
             }
     }

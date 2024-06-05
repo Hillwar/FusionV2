@@ -7,11 +7,10 @@ import dsl.core.view.textAttr.AlignMode
 import dsl.core.view.textAttr.Weight.Companion.semiBold
 import readScript
 
-private val state = mutableMapOf(
-    "$.name" to "Консоль для видеоигр Sony PlayStation 5 PS5, японская версия, PS 5 PC игры, ультра высокая скорость, PlayStation 5",
-)
+private val state: Map<String, String> = mutableMapOf()
 
 private val rootView = text {
+    state("$.name" to "Консоль для видеоигр Sony PlayStation 5 PS5, японская версия, PS 5 PC игры, ультра высокая скорость, PlayStation 5",)
     text { "$.name" }
     padding {
         left { 16 }

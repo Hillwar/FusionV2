@@ -52,7 +52,7 @@ private val rootView = box {
 
             box {
                 size {
-                    maxWidth { 4 }
+                    minHeight { 4 }
                 }
             }
 
@@ -71,7 +71,7 @@ private val rootView = box {
 
         box {
             size {
-                maxHeight { 14 }
+                minHeight { 14 }
             }
         }
 
@@ -88,7 +88,7 @@ private val rootView = box {
 
             box {
                 size {
-                    maxWidth { 4 }
+                    minHeight { 4 }
                 }
             }
 
@@ -118,7 +118,7 @@ private val rootView = box {
 
         box {
             size {
-                maxHeight { 14 }
+                minHeight { 14 }
             }
         }
 
@@ -135,7 +135,7 @@ private val rootView = box {
 
             box {
                 size {
-                    maxWidth { 4 }
+                    minHeight { 4 }
                 }
             }
 
@@ -165,14 +165,14 @@ private val rootView = box {
 
         box {
             size {
-                maxHeight { 12 }
+                minHeight { 12 }
             }
         }
 
         box {
             size {
                 maxWidth { Dimension.fill }
-                maxHeight { 1 }
+                minHeight { 1 }
             }
             background {
                 color { "#E6EAF0" }
@@ -181,7 +181,7 @@ private val rootView = box {
 
         box {
             size {
-                maxHeight { 12 }
+                minHeight { 12 }
             }
         }
 

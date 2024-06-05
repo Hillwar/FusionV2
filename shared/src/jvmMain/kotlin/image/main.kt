@@ -3,6 +3,7 @@ package image
 import Molecule
 import dsl.builder.image
 import dsl.core.view.RootFusionView
+import dsl.core.view.viewAttr.Dimension.Companion.fill
 import readScript
 
 private val state = mutableMapOf(
